@@ -84,7 +84,25 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     child: Text('sign up'),
                   ),
                 ),
-              )
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  TextButton(
+                      onPressed: () {
+                        Navigator.pushAndRemoveUntil(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) {
+                              return MyHomePage();
+                            },
+                          ),
+                          (route) => false,
+                        );
+                      },
+                      child: Text("Login Here here")),
+                ],
+              ),
             ],
           ),
         ),
@@ -105,18 +123,25 @@ class _SignUpScreenState extends State<SignUpScreen> {
           "Accept": "application/json",
         });
     print(response.statusCode);
-    if (response.statusCode == 200) {
+    if (response.statusCode == 200 && (_formKey.currentState!.validate())) {
       var registerArr = json.decode(response.body);
       print(registerArr['token']);
       final prefs = await SharedPreferences.getInstance();
       prefs.setString('token', registerArr['token']);
       ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+          duration: Duration(seconds: 1),
           backgroundColor: Colors.green,
           content: Text("Successfule Created Account")));
       await Navigator.push(
         context,
         MaterialPageRoute(builder: (context) => const MyHomePage()),
       );
-    } else {}
+    } else if (response.statusCode == 400 &&
+        (_formKey.currentState!.validate())) {
+      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+          duration: Duration(seconds: 1),
+          backgroundColor: Colors.red,
+          content: Text("Account Already Existed, please Login")));
+    }
   }
 }

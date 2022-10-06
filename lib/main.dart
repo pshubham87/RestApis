@@ -21,7 +21,7 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(
           primarySwatch: Colors.blue,
         ),
-        // token != '' ? : const HomeScreen(),const
+        // token != '' ? : const HomeScreen()
         home: const MyHomePage());
   }
 }

@@ -30,19 +30,21 @@ class _HomeScreenState extends State<HomeScreen> {
         body: loading == true
             ? Center(child: CircularProgressIndicator())
             : Column(mainAxisAlignment: MainAxisAlignment.center, children: [
-                Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      "name : ${data['name']}",
-                      style: TextStyle(color: Colors.red, fontSize: 20),
-                    ),
-                    Text(
-                      "email  : ${data['email']}",
-                      style: TextStyle(color: Colors.red, fontSize: 20),
-                    ),
-                  ],
+                SingleChildScrollView(
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        "name : ${data['name']}",
+                        style: TextStyle(color: Colors.red, fontSize: 20),
+                      ),
+                      Text(
+                        "email  : ${data['email']}",
+                        style: TextStyle(color: Colors.red, fontSize: 20),
+                      ),
+                    ],
+                  ),
                 ),
                 SizedBox(height: 20),
                 Center(
