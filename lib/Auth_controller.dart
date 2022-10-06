@@ -33,7 +33,7 @@ class AuthController {
       ScaffoldMessenger.of(context).showSnackBar(SnackBar(
           duration: Duration(seconds: 1),
           backgroundColor: Colors.red,
-          content: Text("Entered Wrong Email Or Password.")));
+          content: Text("Entered Wrong Email Or Password..")));
     }
   }
 }
