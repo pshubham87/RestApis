@@ -88,6 +88,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
+                  Text("Already Have Account?"),
                   TextButton(
                       onPressed: () {
                         Navigator.pushAndRemoveUntil(

@@ -82,14 +82,13 @@ class _MyHomePageState extends State<MyHomePage> {
                     children: [
                       TextButton(
                           onPressed: () {
-                            Navigator.pushAndRemoveUntil(
+                            Navigator.push(
                               context,
                               MaterialPageRoute(
                                 builder: (context) {
                                   return SignUpScreen();
                                 },
                               ),
-                              (route) => false,
                             );
                           },
                           child: Text("Sign up here")),
